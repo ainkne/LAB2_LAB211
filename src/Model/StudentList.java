@@ -76,10 +76,8 @@ public class StudentList {
                 .stream()
                 .collect(Collectors.groupingBy(Student::getAddress));
         sameCity.forEach((city, students1) -> {
-            int count;
             System.out.print(city.toUpperCase());
-            for (count = 0; count < students1.size(); count++);
-            System.out.println(" has " + (count) + " student(s)");
+            System.out.println(" has " + students1.size() + " student(s)");
             System.out.println();
         } );
     }
