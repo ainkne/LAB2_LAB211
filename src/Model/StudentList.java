@@ -3,6 +3,7 @@ import Model.Functions.Input;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -12,7 +13,7 @@ public class StudentList {
         Student student = new Student();
         while (true) {
             String id = Input.inputString("Enter student's ID: ");
-            if (searchStudentById(id) > 0) {
+            if (searchStudentById(id) >= 0) {
                 System.out.println("ID existed, try again!");
             } else {
                 student.setId(id);
@@ -44,7 +45,7 @@ public class StudentList {
         String removeId = Input.inputString("Enter student's ID you want to remove: ");
         int i = searchStudentById(removeId);
         if (i < 0) {
-            System.out.println("Not found");
+            System.out.println("ID not found");
         } else {
             students.remove(students.get(i));
         }
@@ -65,7 +66,7 @@ public class StudentList {
                     ((Biz) students.get(n)).setAccScore(Input.inputScore("Enter update accounting score: "));
                     ((Biz) students.get(n)).setMarketingScore(Input.inputScore("Enter update marketing score: "));
                 }
-                System.out.println("Updated ID: " + updateId + "successfully!");
+                System.out.println("Updated ID: " + updateId + " successfully!");
                 break;
             }
         }
@@ -75,24 +76,21 @@ public class StudentList {
                 .stream()
                 .collect(Collectors.groupingBy(Student::getAddress));
         sameCity.forEach((city, students1) -> {
-            int count = 0;
+            int count;
             System.out.print(city.toUpperCase());
-            for (Student student: students1){
-                count++;
-            }
-            System.out.println(" has " + count + " student(s)");
+            for (count = 0; count < students1.size(); count++);
+            System.out.println(" has " + (count) + " student(s)");
             System.out.println();
         } );
     }
     public static void printStudents(){
+        Collections.sort(students);
         students.forEach(System.out::println);
         System.out.println();
     }
     private static int searchStudentById(String id){
         for (int i = 0; i < students.size(); i++){
-            if (students.get(i).getId().equals(id)){
-                return i;
-            }
+            if (students.get(i).getId().equalsIgnoreCase(id)) return i;
         } return -1;
     }
     public static void exportToFile(String filePath) throws IOException {
@@ -100,10 +98,10 @@ public class StudentList {
         for (Student student : students) {
             myWriter.write("Full name: " + student.getFullName());
             if (student instanceof IT) {
-                myWriter.write(" GPA: " + ((IT) student).getTbScore() + "\n");
+                myWriter.write(" |GPA: " + ((IT) student).getTbScore() + "\n");
             }
             if (student instanceof Biz) {
-                myWriter.write(" GPA: " + ((Biz) student).getAvgScore() + "\n");
+                myWriter.write(" |GPA: " + ((Biz) student).getAvgScore() + "\n");
             }
         }
         myWriter.close();

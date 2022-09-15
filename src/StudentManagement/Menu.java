@@ -7,8 +7,8 @@ import java.io.IOException;
 public class Menu {
     public static void displayMenu() throws IOException {
         System.out.println("====  STUDENT MANAGEMENT  ====");
-        System.out.println();
         while (true){
+            System.out.println();
             System.out.println("""
                     1. Add new student
                     2. Print all students

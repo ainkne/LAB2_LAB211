@@ -1,8 +1,6 @@
 package Model;
-
 import lombok.Getter;
 import lombok.Setter;
-
 @Getter
 @Setter
 public class IT extends Student{
@@ -14,7 +12,10 @@ public class IT extends Student{
         this.department = Departments.IT;
         this.javaScore = javaScore;
         this.cssScore = cssScore;
-        this.tbScore = ((3 * this.getJavaScore()) + this.getCssScore()) / 4;
+        this.tbScore = ((3 * this.getJavaScore()) + this.getCssScore()) / 4; //Can't Figure out how to update this.
+    }
+    public float getTbScore(){
+        return (((3 * this.getJavaScore()) + this.getCssScore()) / 4);
     }
     @Override
     public String toString() {

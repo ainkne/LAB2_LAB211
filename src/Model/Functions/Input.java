@@ -23,7 +23,7 @@ public class Input {
             System.out.print(prompt);
             while (!sc.hasNextFloat()){
                 System.out.println("Invalid score, try again!");
-                System.out.println(prompt);
+                System.out.print(prompt);
                 sc.next();
             }
             score = sc.nextFloat();
@@ -47,7 +47,7 @@ public class Input {
     public static String getUpOrRemove(String prompt){
         while (true){
             String character = inputString(prompt);
-            if (character.equalsIgnoreCase("U") || character.equalsIgnoreCase("D")) {
+            if (character.equalsIgnoreCase("U") || character.equalsIgnoreCase("R")) {
                 return character;
             } else {
                 System.out.println("Invalid input, try again!");

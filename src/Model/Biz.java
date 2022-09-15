@@ -1,8 +1,6 @@
 package Model;
-
 import lombok.Getter;
 import lombok.Setter;
-
 @Getter
 @Setter
 public class Biz extends Student{
@@ -14,7 +12,10 @@ public class Biz extends Student{
         this.department = Departments.BIZ;
         this.accScore = accScore;
         this.marketingScore = marketingScore;
-        this.avgScore = ((this.getAccScore() * 2) + this.getMarketingScore()) / 3;
+//        this.avgScore = ((this.getAccScore() * 2) + this.getMarketingScore()) / 3; Can't figure out how to it's not change after updated
+    }
+    public float getAvgScore(){
+        return (((this.getAccScore() * 2) + this.getMarketingScore()) / 3);
     }
     @Override
     public String toString() {
