@@ -2,11 +2,8 @@ package Model;
 import Model.Functions.Input;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.*;
 public class StudentList {
     private static final List<Student> students = new ArrayList<>();
     public static void addStudent(Departments department){
