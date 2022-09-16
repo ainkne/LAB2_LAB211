@@ -12,14 +12,14 @@ public class IT extends Student{
         this.department = Departments.IT;
         this.javaScore = javaScore;
         this.cssScore = cssScore;
-        this.tbScore = ((3 * this.getJavaScore()) + this.getCssScore()) / 4; //Can't Figure out how to update this.
+//        this.tbScore = ((3 * this.getJavaScore()) + this.getCssScore()) / 4; Can't Figure out how to update this.
     }
-    public float getTbScore(){
+    public float getAvgScore(){
         return (((3 * this.getJavaScore()) + this.getCssScore()) / 4);
     }
     @Override
     public String toString() {
         return super.toString() + "Java Score: " + getJavaScore() + " - CSS Score: " + getCssScore() +
-                " - TB Score: " + getTbScore();
+                " - Average Score: " + getAvgScore();
     }
 }

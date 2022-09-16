@@ -13,6 +13,7 @@ public class Student implements Comparable<Student>{
         this.fullName = fullName;
         this.address = address;
     }
+    public float getAvgScore(){return 0;}
     @Override
     public String toString() {
         return "ID: " + getId() + " - FullName: " + getFullName() + " - Address: " + getAddress() + " - ";

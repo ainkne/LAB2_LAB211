@@ -12,11 +12,8 @@ public class Biz extends Student{
         this.department = Departments.BIZ;
         this.accScore = accScore;
         this.marketingScore = marketingScore;
-//        this.avgScore = ((this.getAccScore() * 2) + this.getMarketingScore()) / 3; Can't figure out how to it's not change after updated
     }
-    public float getAvgScore(){
-        return (((this.getAccScore() * 2) + this.getMarketingScore()) / 3);
-    }
+    public float getAvgScore(){return (((this.getAccScore() * 2) + this.getMarketingScore()) / 3);}
     @Override
     public String toString() {
         return super.toString() + "Accounting Score: " + getAccScore() + " - Marketing Score: " + getMarketingScore()

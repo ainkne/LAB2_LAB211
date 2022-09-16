@@ -28,8 +28,8 @@ public class Menu {
         }
     }
     private static void selectStudentType(){
-        System.out.println("---- Select Student's Major ----");
         System.out.println();
+        System.out.println("---- Select Student's Major ----");
         System.out.println("" +
                 "1. Information Technology" +
                 "\n2. Economics");
@@ -40,8 +40,8 @@ public class Menu {
         }
     }
     private static void selectedDelOrUpDate(){
-        System.out.println("---- Update or Remove student ----");
         System.out.println();
+        System.out.println("---- Update or Remove student ----");
         String choice = Input.getUpOrRemove("Enter (U) for Update or (R) for Remove: ");
         switch (choice){
             case "U", "u" -> StudentList.updateStudent();

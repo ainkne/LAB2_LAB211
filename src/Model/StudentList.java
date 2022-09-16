@@ -45,6 +45,7 @@ public class StudentList {
             System.out.println("ID not found");
         } else {
             students.remove(students.get(i));
+            System.out.println("Remove" + removeId + "successfully!");
         }
     }
     public static void updateStudent(){
@@ -96,7 +97,7 @@ public class StudentList {
                 myWriter.write(" |GPA: " + ((IT) student).getTbScore() + "\n");
             }
             if (student instanceof Biz) {
-                myWriter.write(" |GPA: " + ((Biz) student).getAvgScore() + "\n");
+                myWriter.write(" |GPA: " + ((Biz)student).getAvgScore() + "\n");
             }
         }
         myWriter.close();
